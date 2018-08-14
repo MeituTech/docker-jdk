@@ -29,6 +29,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
     g++-multilib \
     libc6-dev-i386 \
     build-essential \
+    rsync \
     && locale-gen en_US.UTF-8 \
     && apt-get clean -y && apt-get autoremove -y && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/*
 
