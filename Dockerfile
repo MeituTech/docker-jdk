@@ -27,6 +27,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
     zip \
     gcc-multilib \
     g++-multilib \
+    zlib1g \
+    lib32z1 \
     libc6-dev-i386 \
     build-essential \
     rsync \
