@@ -58,6 +58,7 @@ RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
     && apt-get install -y --no-install-recommends \
     oracle-java8-installer \
     oracle-java8-set-default \
+    oracle-java8-unlimited-jce-policy \
     && apt-get clean -y && apt-get autoremove -y && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/*
 
 # Install Git-lfs
