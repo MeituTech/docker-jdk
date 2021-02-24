@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-LABEL maintainer "Ligboy.Liu <ligboy@gmail.com>"
+LABEL maintainer="Ligboy.Liu <ligboy@gmail.com>"
 
 # Environments
 # - Language
