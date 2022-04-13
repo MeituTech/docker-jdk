@@ -16,6 +16,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
     curl \
     debconf-utils \
     git \
+    git-lfs \
     mercurial \
     python \
     software-properties-common \
@@ -34,7 +35,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
     rsync \
     openjdk-11-jdk \
     && locale-gen en_US.UTF-8 \
-    && apt-get clean -y && apt-get autoremove -y && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/*
+    && apt-get clean -y && apt-get autoremove -y && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/* && git lfs install
 
 # ------------------------------------------------------
 # --- SSH config
