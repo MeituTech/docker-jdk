@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 LABEL maintainer="Ligboy.Liu <ligboy@gmail.com>"
 
@@ -32,7 +32,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
     libc6-dev-i386 \
     build-essential \
     rsync \
-    openjdk-8-jdk \
+    openjdk-11-jdk \
     && locale-gen en_US.UTF-8 \
     && apt-get clean -y && apt-get autoremove -y && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/*
 
@@ -50,21 +50,6 @@ RUN git config --global user.email robot@meitu.com && git config --global user.n
 #RUN mkdir -p /root/.android
 #COPY ./android/debug.keystore /root/.android/debug.keystore
 
-## Oracle JDK
-#RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | /usr/bin/debconf-set-selections \
-#    && add-apt-repository -y ppa:webupd8team/java \
-#    && DEBIAN_FRONTEND=noninteractive apt-get update -y -qq \
-#    && apt-get install -y --no-install-recommends \
-#    oracle-java8-installer \
-#    oracle-java8-set-default \
-#    oracle-java8-unlimited-jce-policy \
-#    && apt-get clean -y && apt-get autoremove -y && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/*
-
-# Install Git-lfs
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash \
-    &&DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install git-lfs \
-    && git lfs install \
-    && apt-get clean -y && apt-get autoremove -y && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/*
 
 # Go to workspace
 RUN mkdir -p /var/workspace
